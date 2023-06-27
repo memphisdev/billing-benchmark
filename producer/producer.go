@@ -18,8 +18,6 @@ func main() {
 	password := os.Getenv("MEMPHIS_PASS")
 	accountId := os.Getenv("ACCOUNT_ID")
 
-	fmt.Println("accountId", accountId, username, hostname, password)
-
 	if hostname == "" || username == "" || password == "" || accountId == "" {
 		fmt.Printf("Error one of the variables is empty")
 		os.Exit(1)
@@ -64,7 +62,6 @@ func main() {
 	// creating memphis connection
 	for i := 0; i < sCount; i++ {
 		go func(hostname string, username string, password string, accountId int, fileSize int64, counter int, jsonMessage []byte, i int) {
-			fmt.Println(hostname, username, password, accountId)
 			conn, err := memphis.Connect(hostname, username, memphis.Password(password), memphis.AccountId(accountId))
 			if err != nil {
 				fmt.Printf("error creating connection: %v", err.Error())
@@ -83,8 +80,6 @@ func main() {
 				fmt.Printf("error creating station: %v", err.Error()) //
 				os.Exit(1)
 			}
-
-			fmt.Println("!", station.Name)
 
 			pname := generateRandomItem()
 			p, err := conn.CreateProducer(station.Name, pname)

@@ -20,8 +20,6 @@ func main() {
 	counsumerCountStr := os.Getenv("MEMPHIS_CON_COUNT")
 	accountId := os.Getenv("ACCOUNT_ID")
 
-	fmt.Println(hostname, password, username, cgName, counsumerCountStr, accountId)
-
 	//validate env variables exist
 	if hostname == "" || password == "" || username == "" || cgName == "" || counsumerCountStr == "" || accountId == "" {
 		fmt.Printf("missing some enviroment variables")
@@ -63,7 +61,6 @@ func main() {
 
 			consumerName := generateString()
 			stationName := "station" + strconv.Itoa(i)
-			fmt.Println(stationName)
 
 			consumer, err := conn.CreateConsumer(stationName, consumerName, memphis.ConsumerGroup(cgName))
 			if err != nil {
