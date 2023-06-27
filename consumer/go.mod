@@ -1,4 +1,4 @@
-module billing-benchmark
+module consumer-billing
 
 go 1.19
 
