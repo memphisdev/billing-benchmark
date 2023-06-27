@@ -1,10 +1,6 @@
 module billing-benchmark
 
-replace github.com/memphisdev/memphis.go v1.0.3 => /Users/shohamroditi/memphis/memphis.go
-
 go 1.19
-
-// require github.com/memphisdev/memphis.go v1.0.3
 
 require github.com/memphisdev/memphis.go v1.0.3
 
